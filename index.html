@@ -16,17 +16,25 @@
     </head>
     <body>
      <div class="row">
-        <div class="col-sm-4"> 
-            <h1 id="FirstHeading"> Hello World </h1>
+        <div class="col-sm-4">
+            <div id="app">
+                <h1>Vue trials</h1>
+                <textarea v-model="message"></textarea>
+                <button v-show="message">Apply Title!</button>
+            </div>
+            <h2 id="FirstHeading"> Hello World </h2>
             <p id="ptag"></p>
             <script>
-            document.getElementById("ptag").innerHTML = "This is my first Jscript test";
+            var a=1;
+            var b=2;
+            var c=b-a;
+            document.getElementById("ptag").innerHTML = "This is my first Jscript test: " + c;
             </script>
             <a href=https://raider.io/characters/eu/hyjal/Cyki >Link to Cyki's Raider.IO</a>
             <p><img src="Cyki.png" width="600" height="364" alt="Picture of Cyki"></p>
         </div>
         <div class="col-sm-4"> 
-            <h2> Dungeon's performed by Cyki in DF S1 </h2>
+            <h3> Dungeon's performed by Cyki in DF S1 </h3>
             <table>
                 <tr>
                     <th> Dungeon </th>
@@ -62,7 +70,7 @@
                     <th> 315 </th>
                 </tr>
             </table>
-            <h3> M+ boost request form </h3>
+            <h4> M+ boost request form </h4>
                 <form>
                     <label for="cname" > Character Name:</label><br>
                     <input type="text" id="cname" name="cname" placeholder="Scrubadubdub"><br>
@@ -76,7 +84,7 @@
                 </form>
         </div>
         <div class="col-sm-4">   
-            <h4> Colour selection form </h4>
+            <h5> Colour selection form </h5>
             <form>
                 <label for="color">Color:</label>
                 <select id="color" name="color">
@@ -86,9 +94,24 @@
                     <option value="grayon">grayon</option>
                 </select>
             </form>
-            <h5 id="CSSTester"> I am a text </h5>
+            <h6 id="CSSTester"> I am a text </h6>
             <button type="button" class="btn btn-dark btn-sm">DARK</button>
+            <div id="app2">
+                <h2 v-if="isVisible && otherVisible"> Nice! </h2>
+                <h2 v-if="isVisible"> Greetings from Vue! Now you see me! </h2>
+                <h2 v-else-if="otherVisible"> Another one!</h2>
+                <h2 v-else="isVisible"> Now you don't! Hehehe</h2>
+            </div>
         </div>
      </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {message: 'Greetings from Vue v-model!'}, 
+        el: '#app2',
+        data: {isVisible: true, otherVisible: true}
+    })
+</script>
 </html>
